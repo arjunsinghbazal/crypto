@@ -1,0 +1,12 @@
+.pricesType{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
+@media only screen and (max-width: 800px) {
+    .price-btn{
+        font-size: 0.7rem !important;
+        padding: .5rem !important;
+    }
+}
