@@ -100,3 +100,27 @@
   font-size: 0.8rem;
   font-weight: 500;
 }
+.watchlist-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--green);
+  border-radius: 50%;
+  color: var(--green);
+  padding: 0.5rem;
+  height: 0.8rem;
+  margin-left: 1rem;
+  width: 0.8rem !important;
+}
+
+.watchlist-icon-red {
+  border: 2px solid var(--red);
+  color: var(--red);
+}
+@media screen and (max-width: 768px) {
+  .watchlist-icon {
+    margin-left: .5rem ;
+    height: 1rem !important;
+    width: 1rem !important;
+  }
+}

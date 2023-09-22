@@ -6,6 +6,10 @@ import Search from "../Dashboard/Search";
 import PagiNation from "../Dashboard/pagination";
 import Loader from "../common/loader";
 import BackToTop from "../common/BackTTop";
+import { get100coins } from "../../functions/get100coins";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Dashboard=()=>{
     const [coinData,setData]=useState([]);
     const [paginatedcoins,setpaginatedcoins]=useState([]);
@@ -27,17 +31,13 @@ console.log(search)
           item.symbol.toLowerCase().includes(search.toLowerCase())
       );
 
-    const shotData=()=>{
-        axios.get(  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en")
-.then((res)=>{
-    console.log(res)
-    setData(res.data);
-    setpaginatedcoins(res.data.slice(0,10));
-    setisLoading(false);
-}).catch((err)=>{
-    console.log(err)
-    setisLoading(false)
-})
+    const shotData=async()=>{
+       const myCoins=await get100coins();
+     if(myCoins){
+        setData(myCoins);
+        setpaginatedcoins(myCoins.slice(0,10))
+     setisLoading(false)
+     }
     }
     useEffect(()=>{
 shotData()
@@ -49,6 +49,7 @@ shotData()
         {isLoading?(<Loader/>):(<div>
         <Search search={search} OnSearchChange={OnSearchChange}/>
         <Tabs coins={search?filteredCoins: paginatedcoins}/>
+        <ToastContainer/>
        {!search&& <PagiNation page={page} handleChange={handleChange}/>}
         </div>)}
        </>
