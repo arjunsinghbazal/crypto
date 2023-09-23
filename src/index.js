@@ -8,7 +8,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const style={ 
 borderRadius:'50%',border:"2px solid rgb(76, 76, 220)",
 backgroundColor: 'none'
-
 }
 root.render(
   <React.StrictMode>
@@ -16,7 +15,7 @@ root.render(
     <AnimatedCursor  innerSize={9}
       outerSize={29}
       color="76, 76, 220"
-     
+      zIndex= "9999999"
       outerAlpha={0.3}
       innerScale={0.7}
       outerScale={1.5}
