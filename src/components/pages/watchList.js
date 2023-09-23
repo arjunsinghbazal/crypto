@@ -51,7 +51,6 @@ function Watchlist() {
           </div>
         </div>
       )}
-      <Footer/>
     </div>
   );
 }
