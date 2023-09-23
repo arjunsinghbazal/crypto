@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import TemporaryDrawer from './drawer';
 import "./styles.css"
 import Button from '../button';
-
+import DarkMode from '../DarkMode/Darkmode';
 const Header = () => {
   return (
     <div className='navbar'>
@@ -12,6 +12,7 @@ const Header = () => {
         <span style={{ color: "var(--blue)" }}>.</span>
       </h1>
       <div className='links'>
+      <DarkMode/>
       <Link to="/">
           <p className='link'>Home</p>
         </Link>
