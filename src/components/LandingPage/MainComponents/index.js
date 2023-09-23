@@ -4,7 +4,9 @@ import Button from "../../common/button";
 import phone from "../../images/IMG-20230919-WA0000__1_-removebg-preview.png";
 import phoneback from "../../images/yk3rjrsplpfek7si2pkh.png";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
+import {ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 function MainComponent() {
   return (
     <div className="flex-info">
@@ -40,10 +42,15 @@ function MainComponent() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 1.5 }}
         >
-          <Button text={"Dashboard"} />
-          <Button text={"Share"} outlined={true} />
-        </motion.div>
+           <Link to="/dashboard">
+          <Button text={"Dashboard"} onClick={()=> console.log("btn clicked")} />
+        </Link> 
+        
+      <Button text={"Share"} onClick={() => toast.error("This link is not working")} outlined={true} />
+    
+          </motion.div>
       </div>
+      
       <div className="phone-container">
         <motion.img src={phone} alt="phone" className="iphone" initial={{ y: -20 }}
           animate={{ y: 20 }}
@@ -54,7 +61,7 @@ function MainComponent() {
             repeat: Infinity,
           }}/>
         <img src={phoneback} alt="phoneback" className="iphoneback" />
-      </div>
+      </div><ToastContainer position="bottom-center"/>
     </div>
   );
 }
