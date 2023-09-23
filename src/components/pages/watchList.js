@@ -3,7 +3,7 @@ import Button from "../common/button";
 import Header from "../common/Header";
 import Tabs from "../Dashboard/Tabs";
 import { get100coins } from "../../functions/get100coins";
-
+import Footer from "../common/Footer";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -51,6 +51,7 @@ function Watchlist() {
           </div>
         </div>
       )}
+      <Footer/>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import PagiNation from "../Dashboard/pagination";
 import Loader from "../common/loader";
 import BackToTop from "../common/BackTTop";
 import { get100coins } from "../../functions/get100coins";
-
+import Footer from '../common/Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Dashboard=()=>{
@@ -52,6 +52,7 @@ shotData()
         <ToastContainer/>
        {!search&& <PagiNation page={page} handleChange={handleChange}/>}
         </div>)}
+        <Footer/>
        </>
     )
 }

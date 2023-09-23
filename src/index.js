@@ -15,11 +15,12 @@ root.render(
     <AnimatedCursor  innerSize={9}
       outerSize={29}
       color="76, 76, 220"
-      zIndex= "9999999"
+      zIndex={9999999999}
       outerAlpha={0.3}
       innerScale={0.7}
       outerScale={1.5}
       outerStyle={style}
+      
 />
   </React.StrictMode>
 );

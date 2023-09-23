@@ -5,7 +5,7 @@ import Dashboard from './components/pages/Dashboard';
 import CoinPage from './components/pages/coinData';
 import ComparePage from './components/pages/comparePage';
 import Watchlist from './components/pages/watchList';
-import AnimatedCursor from "react-animated-cursor"
+
 function App() {
   return (
   <BrowserRouter>
