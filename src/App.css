@@ -36,3 +36,75 @@
     transform: rotate(360deg);
   }
 }
+/* Styling for Event component */
+
+.event-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Styling for the news list */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5rem;
+}
+
+/* Styling for individual news items */
+.news-item {
+  display: flex;
+  align-items: center; 
+  padding: 1rem;
+  padding-left: 10%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Styling for the UpcomingIcon (assuming it's an SVG) */
+.news-item svg {
+  width: 24px; 
+  height: 24px; 
+  margin-right: 10px; 
+  fill: var(--blue); 
+}
+
+.news-item:hover {
+  background-color: var(--darkgrey);
+  border-left: 2px solid var(--blue);
+  border-right: 2px solid var(--blue);
+}
+@media (max-width: 768px) {
+  .event-container {
+    text-align: center;
+    padding: 5px;
+  }
+  
+  /* Styling for the news list */
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.5rem;
+    font-size: 7px;
+  }
+  
+ 
+  .news-item {
+    display: flex;
+    align-items: center; 
+    padding: 0.4rem;
+    padding-left: 2%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
+  
+ 
+  .news-item svg {
+    width: 10px; 
+    height: 10px; 
+    margin-right: 5px; 
+    fill: var(--blue); 
+  }
+}

@@ -94,7 +94,7 @@ const List = ({coin})=>{
             }`}
             onClick={(e) => {
               if (isCoinAdded) {
-                // remove coin
+                ///// remove coin
                 removeItemToWatchlist(e, coin.id, setIsCoinAdded);
               } else {
                 setIsCoinAdded(true);

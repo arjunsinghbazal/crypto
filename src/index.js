@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import AnimatedCursor from "react-animated-cursor"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const style={ 
-borderRadius:'50%',border:"2px solid rgb(76, 76, 220)",
+borderRadius:'50%',border:"2px solid rgb(58, 128, 233)",
 backgroundColor: 'none'
 }
 root.render(
@@ -14,7 +14,7 @@ root.render(
     <App />
     <AnimatedCursor  innerSize={9}
       outerSize={29}
-      color="76, 76, 220"
+      color="255,255,255"
       zIndex={9999999999}
       outerAlpha={0.3}
       innerScale={0.7}
