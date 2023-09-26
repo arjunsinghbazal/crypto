@@ -57,6 +57,8 @@
   padding: 1rem;
   padding-left: 10%;
   cursor: pointer;
+  transition: background-color 0.3s, border 0.3s; 
+  
 }
 
 
@@ -94,7 +96,7 @@
     padding: 0.4rem;
     padding-left: 2%;
     cursor: pointer;
-
+    transition: background-color 0.3s, border 0.3s; 
     white-space: nowrap;
     overflow: hidden; 
     text-overflow: ellipsis;
