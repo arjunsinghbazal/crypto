@@ -57,10 +57,10 @@
   padding: 1rem;
   padding-left: 10%;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-/* Styling for the UpcomingIcon (assuming it's an SVG) */
+
+/* Styling for the UpcomingIcon */
 .news-item svg {
   width: 24px; 
   height: 24px; 
@@ -94,7 +94,7 @@
     padding: 0.4rem;
     padding-left: 2%;
     cursor: pointer;
-    transition: background-color 0.3s;
+
     white-space: nowrap;
     overflow: hidden; 
     text-overflow: ellipsis;
