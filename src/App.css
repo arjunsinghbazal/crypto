@@ -56,9 +56,13 @@
   align-items: center; 
   padding: 1rem;
   padding-left: 10%;
-  cursor: pointer;
+  cursor: pointer;border-radius: 8px;
   transition: background-color 0.3s, border 0.3s; 
-  
+  background-color: var(--darkgrey);
+  margin-bottom: 1rem;
+  white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
 }
 
 
@@ -71,7 +75,8 @@
 }
 
 .news-item:hover {
-  background-color: var(--darkgrey);
+  border-radius: 5px;
+  background-color: var(--black);
   border-left: 2px solid var(--blue);
   border-right: 2px solid var(--blue);
 }
@@ -96,7 +101,7 @@
     padding: 0.4rem;
     padding-left: 2%;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: background-color 0.3s, border 0.3s; 
     white-space: nowrap;
     overflow: hidden; 
@@ -107,7 +112,7 @@
   .news-item svg {
     width: 10px; 
     height: 10px; 
-    margin-right: 5px; 
+    margin-right: 8px; 
     fill: var(--blue); 
   }
 }
