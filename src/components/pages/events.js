@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
-import BackToTop from '../common/BackTTop';
+// import BackToTop from '../common/BackTTop';
 import Loader from '../common/loader';
 import UpcomingIcon from '@mui/icons-material/Upcoming';
 
@@ -30,11 +30,11 @@ const Event = () => {
   return (
     <div className="event-container">
       <Header />
-      {loading ? ( // Check the loading state
-        <Loader /> // Display Loader component while data is being fetched
+      {loading ? ( 
+        <Loader /> 
       ) : (
         <>
-          <BackToTop />
+          {/* <BackToTop /> */}
           <div className="news-list">
             {newsData.map((article, index) => (
               <a href={article.url} className="news-item" key={index} target="_blank" rel="noopener noreferrer">
@@ -42,7 +42,7 @@ const Event = () => {
               </a>
             ))}
           </div>
-          <Footer />
+          <Footer/>
         </>
       )}
     </div>

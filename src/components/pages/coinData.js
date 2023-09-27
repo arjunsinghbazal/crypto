@@ -48,6 +48,23 @@ const CoinPage = () => {
       setIsLoading(false)
     }
   };
+  const handlePriceTypeChange = async (event, newType) => {
+    try {
+      setIsLoading(true);
+    console.log("1st > ",newType)
+    setPriceType(newType);
+    const prices = await getCoinPrices(id, days, newType);
+    if (prices.length > 0) {
+      settingChartData(setChartData, prices);
+      setIsLoading(false);
+    }
+    } catch (error) {
+      console.log("error is > ", error)
+      setIsLoading(false);
+
+    }
+    
+  };
   return (
     <div>
       <Header />
@@ -60,8 +77,9 @@ const CoinPage = () => {
           </div>
           <div className="grey-wrapper">
           <SelectDays days={days} handleDaysChange={handleDaysChange}/>
-          <TogglePriceType/>
-          <LiveChart chartData={chartData}/></div>
+          <TogglePriceType priceType={priceType}
+              handlePriceTypeChange={handlePriceTypeChange}/>
+          <LiveChart chartData={chartData} priceType={priceType}/></div>
           <CoinInfo heading={coinData.name} description={coinData.desc}/>
          
         </>

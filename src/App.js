@@ -16,7 +16,6 @@ function App() {
   <Route path="/compare" element={<ComparePage/>} />
   <Route path="/events" element={<Event/>} />
   <Route path="/watchlist" element={<Watchlist/>} />
-  
 </Routes>
 
   </BrowserRouter>

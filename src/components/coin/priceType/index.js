@@ -2,7 +2,7 @@ import * as React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import "./styles.css"
-export default function TogglePriceType({priceType,handlePriceChange}) {
+export default function TogglePriceType({priceType,handlePriceTypeChange}) {
 
 
   return (
@@ -10,7 +10,7 @@ export default function TogglePriceType({priceType,handlePriceChange}) {
   <ToggleButtonGroup
     value={priceType}
     exclusive
-    onChange={handlePriceChange}
+    onChange={handlePriceTypeChange}
     sx={{
       "&.Mui-selected": {
         color: "var(--blue) !important",

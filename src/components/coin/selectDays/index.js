@@ -4,13 +4,14 @@ import "./styles.css"
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
-export default function SelectDays({days,handleDaysChange,iscoin}) {
+export default function SelectDays({days,handleDaysChange,noPTag,daysText}) {
   
   return (
     <div className='select-days'>
-     {(!{iscoin})&&
+     {!noPTag &&
         <p>Price Changes in</p>
        }
+       {daysText && <p>Days</p>}
         <Select
          sx={{
         height: "2.5rem",
