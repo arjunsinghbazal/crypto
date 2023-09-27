@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
-// import BackToTop from '../common/BackTTop';
+import BackToTop from '../common/BackTTop';
 import Loader from '../common/loader';
 import UpcomingIcon from '@mui/icons-material/Upcoming';
 
@@ -42,6 +42,7 @@ const Event = () => {
               </a>
             ))}
           </div>
+          <BackToTop/>
           <Footer/>
         </>
       )}
