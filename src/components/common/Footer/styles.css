@@ -6,11 +6,10 @@
     margin: 3rem;
     height: auto;
     border-radius: 0.75rem;
-    background-color: rgba(31, 83, 198, 1)
-     ;
+    background-color: rgba(31, 83, 198, 1);
     background-size: 400% 400%;
+    animation: gradient 5s linear infinite;
   }
-  
   .footer h2 {
     cursor: pointer;
   }

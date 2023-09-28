@@ -15,23 +15,23 @@ function Footer() {
 
   // Render the Footer component
   return (
-    <div className="footer">
+    <div className="footer display">
       {/* Logo with an onClick event to scroll to the top when clicked */}
       <h2 className="logo" onClick={() => topFunction()}>
         CryptoTracker<span>.</span>
       </h2>
       {/* Social media links */}
       <div className="social-links">
-        <a href="https://facebook.com">
+        <a href="https://facebook.com/arjunsinghbazal">
           <FacebookIcon className="social-link" /> {/* Facebook icon */}
         </a>
-        <a href="mailto:avivashishta@gmail.com">
+        <a href="mailto:arjunsinghbazal@gmail.com">
           <EmailIcon className="social-link" /> {/* Email icon */}
         </a>
-        <a href="https://www.twitter.com">
+        <a href="https://www.x.com/arjunsinghbazal">
           <TwitterIcon className="social-link" /> {/* Twitter icon */}
         </a>
-        <a href="https://www.instagram.com">
+        <a href="https://www.instagram.com/arjunsinghbazal">
           <InstagramIcon className="social-link" /> {/* Instagram icon */}
         </a>
       </div>
