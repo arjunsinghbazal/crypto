@@ -15,7 +15,7 @@ function Footer() {
 
   // Render the Footer component
   return (
-    <div className="footer display">
+    <div className="footer">
       {/* Logo with an onClick event to scroll to the top when clicked */}
       <h2 className="logo" onClick={() => topFunction()}>
         CryptoTracker<span>.</span>
