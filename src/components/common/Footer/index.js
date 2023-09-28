@@ -6,7 +6,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 // Define the Footer component
-function Footer() {
+const Footer=()=> {
   // Function to scroll to the top of the page when the logo is clicked
   function topFunction() {
     document.body.scrollTop = 0;
