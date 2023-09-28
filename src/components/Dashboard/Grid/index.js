@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css"
+import "./styles.css";
 import { Link } from "react-router-dom";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
@@ -9,37 +9,44 @@ import { motion } from "framer-motion";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import StarIcon from "@mui/icons-material/Star";
 
-const Grid=({coin})=>{
+// Define a functional component called Grid that takes a 'coin' prop
+const Grid = ({ coin }) => {
+  // Retrieve the watchlist from local storage
   const watchlist = JSON.parse(localStorage.getItem("watchlist"));
+
+  // Initialize state for tracking whether the coin is added to the watchlist
   const [isCoinAdded, setIsCoinAdded] = React.useState(watchlist?.includes(coin.id));
-    return(
-      <Link to={`/coin/${coin.id}`}>
-       <div className={`grid-container ${
+
+  return (
+    <Link to={`/coin/${coin.id}`}>
+      <motion.div className={`grid-container ${
         coin.price_change_percentage_24h < 0 && "grid-container-red"
       }`}>
         <div className="info-flex">
-            <img src={coin.image} alt="707" className="coin-logo"/>
-<div className="name-col">
-    <p className="coin-symbol">{coin.symbol}</p>
-    <p className="coin-name">{coin.name}</p>
-    </div>
-    <div
-              className={`watchlist-icon ${
-                coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
-              }`}
-              onClick={(e) => {
-                if (isCoinAdded) {
-                  // remove
-                  removeItemToWatchlist(e, coin.id, setIsCoinAdded);
-                } else {
-                  setIsCoinAdded(true);
-                  saveItemToWatchlist(e, coin.id);
-                }
-              }}
-            >
-              {isCoinAdded ? <StarIcon /> : <StarOutlineIcon />}
-            </div>
-</div>{coin.price_change_percentage_24h > 0 ? (
+          <img src={coin.image} alt="707" className="coin-logo" />
+          <div className="name-col">
+            <p className="coin-symbol">{coin.symbol}</p>
+            <p className="coin-name">{coin.name}</p>
+          </div>
+          <div
+            className={`watchlist-icon ${
+              coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+            }`}
+            onClick={(e) => {
+              if (isCoinAdded) {
+                // Remove the coin from the watchlist
+                removeItemToWatchlist(e, coin.id, setIsCoinAdded);
+              } else {
+                // Add the coin to the watchlist
+                setIsCoinAdded(true);
+                saveItemToWatchlist(e, coin.id);
+              }
+            }}
+          >
+            {isCoinAdded ? <StarIcon /> : <StarOutlineIcon />}
+          </div>
+        </div>
+        {coin.price_change_percentage_24h > 0 ? (
           <div className="chip-flex">
             <div className="price-chip">
               {coin.price_change_percentage_24h.toFixed(2)}%
@@ -77,9 +84,9 @@ const Grid=({coin})=>{
             Market Cap : ${coin.market_cap.toLocaleString()}
           </p>
         </div>
-        </div>
-        </Link>
-    )
-}
+      </motion.div>
+    </Link>
+  );
+};
 
-export default Grid;
+export default Grid; // Export the Grid component

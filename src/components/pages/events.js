@@ -7,7 +7,10 @@ import Loader from '../common/loader';
 import UpcomingIcon from '@mui/icons-material/Upcoming';
 
 const Event = () => {
+  // State to store news data
   const [newsData, setNewsData] = useState([]);
+
+  // State to manage loading state
   const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
@@ -15,35 +18,39 @@ const Event = () => {
 
     const fetchData = async () => {
       try {
+        // Fetch news data from the API
         const response = await axios.get(apiUrl);
         setNewsData(response.data.Data);
-        setLoading(false); // Set loading to false when data is fetched
+        if(newsData){
+          setLoading(false);
+        } // Set loading to false when data is fetched
       } catch (error) {
         console.error(error);
-        setLoading(false); // Set loading to false in case of an error
       }
     };
 
     fetchData();
-  }, []);
+  }, [newsData]);
 
   return (
     <div className="event-container">
       <Header />
       {loading ? ( 
+        // Display a loader while data is being fetched
         <Loader /> 
       ) : (
         <>
-          {/* <BackToTop /> */}
+          <BackToTop />
           <div className="news-list">
             {newsData.map((article, index) => (
+              // Render each news article as a clickable link
               <a href={article.url} className="news-item" key={index} target="_blank" rel="noopener noreferrer">
                 <span><UpcomingIcon/></span>{article.title}
               </a>
             ))}
           </div>
-          <BackToTop/>
-          <Footer/>
+          
+          <Footer />
         </>
       )}
     </div>

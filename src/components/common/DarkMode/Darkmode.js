@@ -3,7 +3,9 @@ import { styled } from "@mui/material/styles";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 
+// Create a styled Material-UI Switch component with custom styles
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+  // Styling for the switch
   width: 62,
   height: 34,
   padding: 7,
@@ -50,34 +52,43 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
+// Function to set the dark mode
 const setDarkMode = () => {
   document.querySelector("body").setAttribute("data-theme", "dark");
   localStorage.setItem("selectedTheme", "dark");
 };
+
+// Function to set the light mode
 const setLightMode = () => {
   document.querySelector("body").setAttribute("data-theme", "light");
   localStorage.setItem("selectedTheme", "light");
 };
+
+// Retrieve the selected theme from local storage or default to "dark"
 const selectedTheme = localStorage.getItem("selectedTheme") || "dark";
 
+// Set the initial theme based on the selected theme
 if (selectedTheme === "dark") {
   setDarkMode();
 } else {
   setLightMode();
 }
+
+// Function to toggle between dark and light modes
 const toggleTheme = (e) => {
   if (e.target.checked) setDarkMode();
   else setLightMode();
 };
 
+// Define the DarkMode component
 export default function DarkMode() {
   return (
     <FormControlLabel
       control={
         <MaterialUISwitch
           sx={{ m: 1 }}
-          defaultChecked={selectedTheme === "dark"}
-          onChange={toggleTheme}
+          defaultChecked={selectedTheme === "dark"} // Set defaultChecked based on the selected theme
+          onChange={toggleTheme} // Handle theme toggle on change
         />
       }
     />

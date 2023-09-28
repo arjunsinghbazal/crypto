@@ -12,6 +12,7 @@ import { convertDate } from "../../functions/convertDate";
 import SelectDays from "../coin/selectDays";
 import { settingChartData } from "../../functions/settingChartData";
 import TogglePriceType from "../coin/priceType";
+
 const CoinPage = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -21,67 +22,100 @@ const CoinPage = () => {
   const [priceType, setPriceType] = useState("prices");
 
   useEffect(() => {
+    // This useEffect runs when the 'id' parameter in the URL changes.
     if (id) {
-      getData()}
+      // Calls the 'getData' function when the 'id' parameter is available.
+      getData();
+    }
   }, [id]);
 
   async function getData() {
+    // Fetches coin data based on the 'id' parameter from the URL.
     const data = await getCoinData(id);
     if (data) {
+      // Processes and sets the fetched coin data.
       coinObject(setCoinData, data);
+
+      // Fetches coin prices based on 'days' and 'priceType'.
       const prices = await getCoinPrices(id, days, priceType);
       if (prices.length > 0) {
-        // settingChartData(setChartData, prices);
-      settingChartData(setChartData,prices)
+        // Sets the chart data for rendering.
+        settingChartData(setChartData, prices);
+
+        // Indicates that data loading is complete.
         setIsLoading(false);
       }
     }
   }
 
-
-  const handleDaysChange =async (event) => {
-    setIsLoading(true)
+  const handleDaysChange = async (event) => {
+    // Handles changes in the selected number of days.
+    setIsLoading(true);
     setDays(event.target.value);
-    const prices = await getCoinPrices(id, event.target.value,priceType);
-    if (prices.length > 0){
-      settingChartData(setChartData,prices);
-      setIsLoading(false)
+
+    // Fetches coin prices with the updated 'days' parameter.
+    const prices = await getCoinPrices(id, event.target.value, priceType);
+    if (prices.length > 0) {
+      // Sets chart data with the updated prices.
+      settingChartData(setChartData, prices);
+
+      // Indicates that data loading is complete.
+      setIsLoading(false);
     }
   };
+
   const handlePriceTypeChange = async (event, newType) => {
     try {
+      // Handles changes in the selected price type (e.g., 'prices', 'market_caps').
       setIsLoading(true);
-    console.log("1st > ",newType)
-    setPriceType(newType);
-    const prices = await getCoinPrices(id, days, newType);
-    if (prices.length > 0) {
-      settingChartData(setChartData, prices);
-      setIsLoading(false);
-    }
-    } catch (error) {
-      console.log("error is > ", error)
-      setIsLoading(false);
+      setPriceType(newType);
 
+      // Fetches coin prices with the updated 'priceType' parameter.
+      const prices = await getCoinPrices(id, days, newType);
+      if (prices.length > 0) {
+        // Sets chart data with the updated prices.
+        settingChartData(setChartData, prices);
+
+        // Indicates that data loading is complete.
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.log("error is > ", error);
+      // Handles any errors that may occur during the price type change.
+      setIsLoading(false);
     }
-    
   };
+
   return (
     <div>
       <Header />
+
       {isLoading ? (
+        // Display a loading spinner when data is being fetched.
         <Loader />
       ) : (
         <>
           <div className="grey-wrapper" style={{ padding: "0rem 1rem" }}>
+            {/* Display coin information in a list format. */}
             <List coin={coinData} />
           </div>
+
           <div className="grey-wrapper">
-          <SelectDays days={days} handleDaysChange={handleDaysChange}/>
-          <TogglePriceType priceType={priceType}
-              handlePriceTypeChange={handlePriceTypeChange}/>
-          <LiveChart chartData={chartData} priceType={priceType}/></div>
-          <CoinInfo heading={coinData.name} description={coinData.desc}/>
-         
+            {/* Allows users to select a specific number of days for the price chart. */}
+            <SelectDays days={days} handleDaysChange={handleDaysChange} />
+
+            {/* Allows users to toggle between different price types (e.g., prices, market caps). */}
+            <TogglePriceType
+              priceType={priceType}
+              handlePriceTypeChange={handlePriceTypeChange}
+            />
+
+            {/* Renders a live price chart based on selected options. */}
+            <LiveChart chartData={chartData} priceType={priceType} />
+          </div>
+
+          {/* Display additional coin information. */}
+          <CoinInfo heading={coinData.name} description={coinData.desc} />
         </>
       )}
     </div>
