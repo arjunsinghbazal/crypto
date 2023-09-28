@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import BackToTop from '../common/BackTTop';
 import Loader from '../common/loader';
 import UpcomingIcon from '@mui/icons-material/Upcoming';
+import { fetchNewsData } from '../../functions/getEventsdata'; // Import the fetchNewsData function
 
 const Event = () => {
   // State to store news data
@@ -12,25 +12,24 @@ const Event = () => {
 
   // State to manage loading state
   const [loading, setLoading] = useState(true); // Add a loading state
+  const error="NO Events Found"
 
   useEffect(() => {
-    const apiUrl = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN&apiKey=cb61428f173bd9dfe46ab55e0eed23fa04c30251eb044150e3e5731135e975fa';
-
     const fetchData = async () => {
       try {
-        // Fetch news data from the API
-        const response = await axios.get(apiUrl);
-        setNewsData(response.data.Data);
-        if(newsData){
-          setLoading(false);
-        } // Set loading to false when data is fetched
+        // Call the fetchNewsData function from the imported module
+        const data = await fetchNewsData();
+        setNewsData(data);
+        setLoading(false); // Set loading to false when data is fetched
       } catch (error) {
+        // You can handle the error here or in any way you prefer
         console.error(error);
+        setLoading(false); // Set loading to false in case of an error
       }
     };
 
     fetchData();
-  }, [newsData]);
+  }, []); // This effect runs only once on component mount
 
   return (
     <div className="event-container">
@@ -42,12 +41,13 @@ const Event = () => {
         <>
           <BackToTop />
           <div className="news-list">
-            {newsData.map((article, index) => (
+          
+            {newsData ? newsData.map((article, index) => (
               // Render each news article as a clickable link
               <a href={article.url} className="news-item" key={index} target="_blank" rel="noopener noreferrer">
                 <span><UpcomingIcon/></span>{article.title}
               </a>
-            ))}
+            )):<h1>{error}</h1> }
           </div>
           
           <Footer />
