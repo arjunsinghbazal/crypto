@@ -11,7 +11,8 @@ import CoinInfo from "../coin/CoinInfo";
 import LiveChart from "../coin/LiveChart";
 import TogglePriceType from "../coin/priceType";
 import { settingChartData } from "../../functions/settingChartData";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ComparePage = () => {
   // State to manage the first selected cryptocurrency
   const [crypto1, setCrypto1] = useState("bitcoin");
@@ -202,6 +203,7 @@ const ComparePage = () => {
 
           {/* CoinInfo component for the second cryptocurrency */}
           <CoinInfo heading={crypto2Data.name} description={crypto2Data.desc} />
+          <ToastContainer/>
         </>
       )}
     </div>

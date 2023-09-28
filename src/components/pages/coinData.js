@@ -12,7 +12,8 @@ import { convertDate } from "../../functions/convertDate";
 import SelectDays from "../coin/selectDays";
 import { settingChartData } from "../../functions/settingChartData";
 import TogglePriceType from "../coin/priceType";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const CoinPage = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -99,7 +100,7 @@ const CoinPage = () => {
             {/* Display coin information in a list format. */}
             <List coin={coinData} />
           </div>
-
+<ToastContainer/>
           <div className="grey-wrapper">
             {/* Allows users to select a specific number of days for the price chart. */}
             <SelectDays days={days} handleDaysChange={handleDaysChange} />
