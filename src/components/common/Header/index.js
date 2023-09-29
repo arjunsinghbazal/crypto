@@ -4,19 +4,18 @@ import TemporaryDrawer from './drawer';
 import "./styles.css"
 import Button from '../button';
 import DarkMode from '../DarkMode/Darkmode';
-
 const Header = () => {
   return (
     <div className='navbar'>
-      {/* Logo with the name "CryptoTracker" */}
+      {/*Logo with the name "CryptoTracker"*/}
       <h1 className='logo'>
-        CryptVest
+        CryptoVest
         <span style={{ color: "var(--blue)" }}>.</span>
       </h1>
       <div className='links'>
-        {/* Dark mode toggle */}
+        {/*Dark mode toggle*/}
         <DarkMode/>
-        {/* Navigation links */}
+        {/*Navigation links*/}
         <Link to="/">
           <p className='link'>Home</p>
         </Link>
