@@ -13,6 +13,7 @@ import TogglePriceType from "../coin/priceType";
 import { settingChartData } from "../../functions/settingChartData";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import BackToTop from "../common/BackTTop";
 const ComparePage = () => {
   // State to manage the first selected cryptocurrency
   const [crypto1, setCrypto1] = useState("bitcoin");
@@ -29,7 +30,7 @@ const ComparePage = () => {
   // State to manage loading state
   const [isLoading, setIsLoading] = useState(true);
 
-  // State to manage the number of days for data
+  // State to manage the number of days fo data
   const [days, setDays] = useState(60);
 
   // State to manage the type of price data (e.g., prices, market caps)
@@ -133,13 +134,14 @@ const ComparePage = () => {
     <div>
       {/* Header component */}
       <Header />
-
+      <BackToTop/>
       {isLoading ? (
         // Loader component while data is loading
         <Loader />
       ) : (
         <>
           <div className="coins-days-flex">
+          
             {/* SelectCoins component to choose cryptocurrencies */}
             <SelectCoins
               crypto1={crypto1}

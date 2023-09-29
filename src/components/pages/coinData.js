@@ -8,7 +8,7 @@ import { getCoinPrices } from "../../functions/getCoinPrices";
 import List from "../Dashboard/List";
 import CoinInfo from "../coin/CoinInfo";
 import LiveChart from "../coin/LiveChart";
-import { convertDate } from "../../functions/convertDate";
+import BackToTop from "../common/BackTTop";
 import SelectDays from "../coin/selectDays";
 import { settingChartData } from "../../functions/settingChartData";
 import TogglePriceType from "../coin/priceType";
@@ -87,6 +87,7 @@ const CoinPage = () => {
   return (
     <div>
       <Header />
+      <BackToTop/>
       {isLoading ? (
         // Display a loading spinner when data is being fetched.
         <Loader />

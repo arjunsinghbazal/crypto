@@ -40,7 +40,7 @@ body {
 
 /* width of scrollbar */
 ::-webkit-scrollbar {
-  width: 0.3rem;
+  width: 0.2rem;
 }
 /* track of scrollbar */
 ::-webkit-scrollbar-track {

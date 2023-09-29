@@ -34,12 +34,13 @@ const Event = () => {
   return (
     <div className="event-container">
       <Header />
+      <BackToTop />
       {loading ? ( 
         // Display a loader while data is being fetched
         <Loader /> 
       ) : (
         <>
-          <BackToTop />
+         
           <div className="news-list">
           
             {newsData ? newsData.map((article, index) => (
