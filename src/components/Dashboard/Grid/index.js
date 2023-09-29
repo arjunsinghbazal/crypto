@@ -10,7 +10,7 @@ import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import StarIcon from "@mui/icons-material/Star";
 
 // Define a functional component called Grid that takes a 'coin' prop
-const Grid = ({ coin,delay }) => {
+const Grid = ({ coin}) => {
   // Retrieve the watchlist from local storage
   const watchlist = JSON.parse(localStorage.getItem("watchlist"));
 
@@ -35,9 +35,11 @@ const Grid = ({ coin,delay }) => {
             onClick={(e) => {
               if (isCoinAdded) {
                 // Remove the coin from the watchlist
+                e.preventDefault()
                 removeItemToWatchlist(e, coin.id, setIsCoinAdded);
               } else {
                 // Add the coin to the watchlist
+                e.preventDefault()
                 setIsCoinAdded(true);
                 saveItemToWatchlist(e, coin.id);
               }

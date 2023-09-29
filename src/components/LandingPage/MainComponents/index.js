@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from "../../common/Footer";
 function MainComponent() {
   return (<>
     <div className="flex-info">

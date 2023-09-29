@@ -53,13 +53,11 @@ const CoinPage = () => {
     // Handles changes in the selected number of days.
     setIsLoading(true);
     setDays(event.target.value);
-
     // Fetches coin prices with the updated 'days' parameter.
     const prices = await getCoinPrices(id, event.target.value, priceType);
     if (prices.length > 0) {
       // Sets chart data with the updated prices.
       settingChartData(setChartData, prices);
-
       // Indicates that data loading is complete.
       setIsLoading(false);
     }
@@ -70,7 +68,6 @@ const CoinPage = () => {
       // Handles changes in the selected price type (e.g., 'prices', 'market_caps').
       setIsLoading(true);
       setPriceType(newType);
-
       // Fetches coin prices with the updated 'priceType' parameter.
       const prices = await getCoinPrices(id, days, newType);
       if (prices.length > 0) {
@@ -90,7 +87,6 @@ const CoinPage = () => {
   return (
     <div>
       <Header />
-
       {isLoading ? (
         // Display a loading spinner when data is being fetched.
         <Loader />
@@ -104,7 +100,6 @@ const CoinPage = () => {
           <div className="grey-wrapper">
             {/* Allows users to select a specific number of days for the price chart. */}
             <SelectDays days={days} handleDaysChange={handleDaysChange} />
-
             {/* Allows users to toggle between different price types (e.g., prices, market caps). */}
             <TogglePriceType
               priceType={priceType}
