@@ -18,7 +18,7 @@ function Footer() {
     <div className="footer">
       {/* Logo with an onClick event to scroll to the top when clicked */}
       <h2 className="logo" onClick={() => topFunction()}>
-        CryptoVest<span>.</span>
+        Crypt<span>o</span>Vest<span>.</span>
       </h2>
       {/* Social media links */}
       <div className="social-links">
