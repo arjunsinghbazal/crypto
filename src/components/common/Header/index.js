@@ -10,7 +10,7 @@ const Header = () => {
     <div className='navbar'>
       {/* Logo with the name "CryptoTracker" */}
       <h1 className='logo'>
-        Crypt<span style={{ color: "var(--blue)" }}>o</span>Vest
+        CryptVest
         <span style={{ color: "var(--blue)" }}>.</span>
       </h1>
       <div className='links'>
