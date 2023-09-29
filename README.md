@@ -1,70 +1,96 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Crypto Tracker 
 
-## Available Scripts
 
-In the project directory, you can run:
+CryptoTracker is the tracker you always needed. Compare different crypto currencies, look at their graphs - prices, total volumes, market cap, etc. Search from the top 100 Crypto currencies in real time and add them to your watchlist aswell.
 
-### `npm start`
+## API Reference
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Get all coins
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
 
-### `npm test`
+### get coin data
+"https://api.coingecko.com/api/v3/coins/${id}"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### get prices
+"https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily"
 
-### `npm run build`
+### get events
+'https://min-api.cryptocompare.com/data/v2/news/?lang=EN&apiKey=cb61428f173bd9dfe46ab55e0eed23fa04c30251eb044150e3e5731135e975fa'
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## key Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Light/dark mode toggle
+- Live previews
+- Fullscreen mode
+- Cross platform
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Features
+#### Initial Setup 
+###### Custom scroll Bar
+###### Custom selection.
+###### Disabling Image dragging + Folder Structure and code organisation.
+#### Landing page -
+###### Header - Mui Drawer.
+###### Text Stroke Hover animation - landing page.
+###### Framer Motion - The animation for phone and entrance animation for text.
+#### Dashboard page -
+###### Mui Tab component - for dashboard tabs (custom themed)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+###### ToLocaleString() - adds commas to numbers and ToFixed(2) - adds 2 decimal places
 
-## Learn More
+###### Converting numbers - custom function
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+###### Search functionality - accomplished using .filter()
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Pagination Mui - 
+###### Slicing the data in correspondence to the page number
 
-### Code Splitting
+Wrote a js function to take us to the top of the page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Coin page -
+###### Used router params to get the id of the bitcoin
 
-### Analyzing the Bundle Size
+###### Used react-chartjs-2 to make the graphs.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+###### Made a function to get the array of dates in x number of days.
 
-### Making a Progressive Web App
+###### Used Mui Select to get the number of days, and had a function to get prices accordingly.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+###### Mui Toggle buttons for getting prices,mkt_cap,volume values.
 
-### Advanced Configuration
+###### Used dangerouslySetInnerHTML attribute to render a string having html tags in it.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+###### Made a Loading component to make sure all the data was there, before rendering the components.
 
-### Deployment
+###### Made a custom styled object to style Mui Components + Read More or Read Less functionality.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Compare Page -
+###### For the 2 simultaneous graphs, we made 2 y-axis and 2 datasets.
+###### Select component mui, having the list of 100 coins.
+###### Also since comparison of the same coin makes no sense, we made sure that both selects have every coin other than the coin selected.
+#### Light Mode Dark Mode -
 
-### `npm run build` fails to minify
+######  Using local storage and data-theme variable in css
+###### Updating root variables according to the theme.
+#### Watchlist-
+###### localstorage - adding coins in an array
+###### localstorage - removing as well.
+###### useEffect -> watchlist page
+#### Other features -
+###### Using RWebShare npm package.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###### Mui icons
+
+
+###### Added toasts - react-toastify for every action.
+## Demo
+
+
+
+https://crypto-steel.vercel.app/
